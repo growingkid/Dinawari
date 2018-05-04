@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/fullscreen.svg</file>
+        <file>resources/Dinawari.png</file>
+        <file>resources/Dinawari.svg</file>
+    </qresource>
+</RCC>
