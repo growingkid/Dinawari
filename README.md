@@ -2,6 +2,8 @@
 [Dinawari](https://github.com/growingkid/Dinawari) is a free serial port terminal written with Qt and comes with GPLv3.
 Tested on Ubuntu(18.04), successfully!
 
+**Dinawari supports file sending!**
+
 ### Usage
 Dinawari requires Qt to get build and run:
 
