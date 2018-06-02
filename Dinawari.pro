@@ -5,7 +5,7 @@
 
 QT += core gui widgets serialport
 
-TARGET = Dinawari
+TARGET = dinawari
 TEMPLATE = app
 #QMAKE_CXXFLAGS += -std=c++17
 #QMAKE_LFLAGS += -no-pie
