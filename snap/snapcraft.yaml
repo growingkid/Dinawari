@@ -19,7 +19,7 @@ parts:
     plugin: qmake
     qt-version: qt5
     after: [desktop-qt5]
-    source: .
+    source: ../
     build-packages:
       - qtbase5-dev
       - libqt5serialport5-dev
