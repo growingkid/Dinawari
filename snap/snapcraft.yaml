@@ -11,15 +11,15 @@ type: app
 
 apps:
   dinawari:
-    command: desktop-launch Dinawari
+    command: desktop-launch dinawari
     plugs: [desktop,home, serial-port, x11]
 
 parts:
-  Dinawari:
+  dinawari:
     plugin: qmake
     qt-version: qt5
-#    after: [desktop-qt5]
-    source: ../
+    after: [desktop-qt5]
+    source: .
     build-packages:
       - qtbase5-dev
       - libqt5serialport5-dev
