@@ -7,11 +7,8 @@ QT += core gui widgets serialport
 
 TARGET = Dinawari
 TEMPLATE = app
-QMAKE_CXXFLAGS += -std=c++1y
+#QMAKE_CXXFLAGS += -std=c++17
 #QMAKE_LFLAGS += -no-pie
-
-target.path = /bin
-INSTALLS += target
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
