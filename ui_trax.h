@@ -71,14 +71,17 @@ public:
     QWidget *widget_7;
     QGridLayout *gridLayout_8;
     QPushButton *Button_tx_clear;
-    QPushButton *Button_tx_send;
-    QCheckBox *checkBox_3;
-    QPushButton *Button_tx_send_hex;
+    QCheckBox *checkBox_6;
     QLabel *label_7;
+    QCheckBox *checkBox_5;
+    QCheckBox *checkBox_7;
     QPushButton *Button_tx_browse;
-    QSpacerItem *horizontalSpacer;
+    QPushButton *Button_tx_send;
     QPushButton *Button_tx_sendfile;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *Button_tx_send_hex;
     QLineEdit *lineEdit;
+    QCheckBox *checkBox_3;
     QCheckBox *checkBox_4;
     QPlainTextEdit *plainTextEdit_4;
     QStatusBar *statusBar;
@@ -314,6 +317,22 @@ public:
 "color:#EB421C;\n"
 "}\n"
 "/**************************************/\n"
+"QCheckBox#checkBox_5\n"
+"{\n"
+"color:#EB421C;\n"
+"}\n"
+"/**************************************/\n"
+"QCheckBox#checkBox_6\n"
+"{\n"
+"color:#EB421C;\n"
+"}\n"
+"/**************************************/\n"
+"QCheckBox#checkBox_7\n"
+"{\n"
+"color:#EB421C;\n"
+"}\n"
+"/**********"
+                        "****************************/\n"
 "QComboBox#comboBox\n"
 "{\n"
 "color: rgb(212, 204, 210);\n"
@@ -325,8 +344,7 @@ public:
 "color: rgb(212, 204, 210);\n"
 "background-color: rgb(32, 32, 32);\n"
 "}\n"
-"/***********"
-                        "***************************/\n"
+"/**************************************/\n"
 "QComboBox#comboBox_3\n"
 "{\n"
 "color: rgb(212, 204, 210);\n"
@@ -354,7 +372,8 @@ public:
 "{\n"
 "background-color: rgb(212, 204, 210);\n"
 "}\n"
-"/**************************************/\n"
+"/***********"
+                        "***************************/\n"
 "QPlainTextEdit#plainTextEdit_3\n"
 "{\n"
 "background-color: rgb(212, 204, 210);\n"
@@ -653,23 +672,61 @@ public:
         Button_tx_clear->setMinimumSize(QSize(75, 0));
         Button_tx_clear->setFont(font1);
 
-        gridLayout_8->addWidget(Button_tx_clear, 0, 9, 1, 1);
+        gridLayout_8->addWidget(Button_tx_clear, 0, 14, 1, 1);
+
+        checkBox_6 = new QCheckBox(widget_7);
+        checkBox_6->setObjectName(QString::fromUtf8("checkBox_6"));
+
+        gridLayout_8->addWidget(checkBox_6, 0, 5, 1, 1);
+
+        label_7 = new QLabel(widget_7);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setFont(font);
+
+        gridLayout_8->addWidget(label_7, 0, 0, 1, 1);
+
+        checkBox_5 = new QCheckBox(widget_7);
+        checkBox_5->setObjectName(QString::fromUtf8("checkBox_5"));
+
+        gridLayout_8->addWidget(checkBox_5, 0, 4, 1, 1);
+
+        checkBox_7 = new QCheckBox(widget_7);
+        checkBox_7->setObjectName(QString::fromUtf8("checkBox_7"));
+
+        gridLayout_8->addWidget(checkBox_7, 0, 6, 1, 1);
+
+        Button_tx_browse = new QPushButton(widget_7);
+        Button_tx_browse->setObjectName(QString::fromUtf8("Button_tx_browse"));
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("Ubuntu Light"));
+        font6.setPointSize(12);
+        Button_tx_browse->setFont(font6);
+
+        gridLayout_8->addWidget(Button_tx_browse, 0, 10, 1, 1);
 
         Button_tx_send = new QPushButton(widget_7);
         Button_tx_send->setObjectName(QString::fromUtf8("Button_tx_send"));
         sizePolicy.setHeightForWidth(Button_tx_send->sizePolicy().hasHeightForWidth());
         Button_tx_send->setSizePolicy(sizePolicy);
         Button_tx_send->setMinimumSize(QSize(75, 0));
-        QFont font6;
-        font6.setFamily(QString::fromUtf8("Ubuntu Light"));
-        Button_tx_send->setFont(font6);
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("Ubuntu Light"));
+        Button_tx_send->setFont(font7);
 
-        gridLayout_8->addWidget(Button_tx_send, 0, 7, 1, 1);
+        gridLayout_8->addWidget(Button_tx_send, 0, 12, 1, 1);
 
-        checkBox_3 = new QCheckBox(widget_7);
-        checkBox_3->setObjectName(QString::fromUtf8("checkBox_3"));
+        Button_tx_sendfile = new QPushButton(widget_7);
+        Button_tx_sendfile->setObjectName(QString::fromUtf8("Button_tx_sendfile"));
+        sizePolicy.setHeightForWidth(Button_tx_sendfile->sizePolicy().hasHeightForWidth());
+        Button_tx_sendfile->setSizePolicy(sizePolicy);
+        Button_tx_sendfile->setMinimumSize(QSize(75, 0));
+        Button_tx_sendfile->setFont(font7);
 
-        gridLayout_8->addWidget(checkBox_3, 0, 2, 1, 1);
+        gridLayout_8->addWidget(Button_tx_sendfile, 0, 11, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer, 0, 1, 1, 1);
 
         Button_tx_send_hex = new QPushButton(widget_7);
         Button_tx_send_hex->setObjectName(QString::fromUtf8("Button_tx_send_hex"));
@@ -678,45 +735,22 @@ public:
         Button_tx_send_hex->setMinimumSize(QSize(75, 0));
         Button_tx_send_hex->setFont(font1);
 
-        gridLayout_8->addWidget(Button_tx_send_hex, 0, 8, 1, 1);
-
-        label_7 = new QLabel(widget_7);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font);
-
-        gridLayout_8->addWidget(label_7, 0, 0, 1, 1);
-
-        Button_tx_browse = new QPushButton(widget_7);
-        Button_tx_browse->setObjectName(QString::fromUtf8("Button_tx_browse"));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("Ubuntu Light"));
-        font7.setPointSize(12);
-        Button_tx_browse->setFont(font7);
-
-        gridLayout_8->addWidget(Button_tx_browse, 0, 5, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_8->addItem(horizontalSpacer, 0, 1, 1, 1);
-
-        Button_tx_sendfile = new QPushButton(widget_7);
-        Button_tx_sendfile->setObjectName(QString::fromUtf8("Button_tx_sendfile"));
-        sizePolicy.setHeightForWidth(Button_tx_sendfile->sizePolicy().hasHeightForWidth());
-        Button_tx_sendfile->setSizePolicy(sizePolicy);
-        Button_tx_sendfile->setMinimumSize(QSize(75, 0));
-        Button_tx_sendfile->setFont(font6);
-
-        gridLayout_8->addWidget(Button_tx_sendfile, 0, 6, 1, 1);
+        gridLayout_8->addWidget(Button_tx_send_hex, 0, 13, 1, 1);
 
         lineEdit = new QLineEdit(widget_7);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
-        gridLayout_8->addWidget(lineEdit, 0, 4, 1, 1);
+        gridLayout_8->addWidget(lineEdit, 0, 9, 1, 1);
+
+        checkBox_3 = new QCheckBox(widget_7);
+        checkBox_3->setObjectName(QString::fromUtf8("checkBox_3"));
+
+        gridLayout_8->addWidget(checkBox_3, 0, 7, 1, 1);
 
         checkBox_4 = new QCheckBox(widget_7);
         checkBox_4->setObjectName(QString::fromUtf8("checkBox_4"));
 
-        gridLayout_8->addWidget(checkBox_4, 0, 3, 1, 1);
+        gridLayout_8->addWidget(checkBox_4, 0, 8, 1, 1);
 
 
         gridLayout_6->addWidget(widget_7, 0, 0, 1, 2);
@@ -810,12 +844,15 @@ public:
 #endif // QT_NO_STATUSTIP
         Button_fs->setText(QString());
         Button_tx_clear->setText(QApplication::translate("Trax", " Clear ", nullptr));
-        Button_tx_send->setText(QApplication::translate("Trax", " Send ", nullptr));
-        checkBox_3->setText(QApplication::translate("Trax", "CR", nullptr));
-        Button_tx_send_hex->setText(QApplication::translate("Trax", "Send Hex", nullptr));
+        checkBox_6->setText(QApplication::translate("Trax", "CTRL+D", nullptr));
         label_7->setText(QApplication::translate("Trax", "<html><head/><body><p><span style=\" color:#10c955;\">Send</span></p></body></html>", nullptr));
+        checkBox_5->setText(QApplication::translate("Trax", "CTRL+C", nullptr));
+        checkBox_7->setText(QApplication::translate("Trax", "CTRL+Z", nullptr));
         Button_tx_browse->setText(QApplication::translate("Trax", "  ...  ", nullptr));
+        Button_tx_send->setText(QApplication::translate("Trax", " Send ", nullptr));
         Button_tx_sendfile->setText(QApplication::translate("Trax", " Send file ", nullptr));
+        Button_tx_send_hex->setText(QApplication::translate("Trax", "Send Hex", nullptr));
+        checkBox_3->setText(QApplication::translate("Trax", "CR", nullptr));
         checkBox_4->setText(QApplication::translate("Trax", "LF", nullptr));
     } // retranslateUi
 

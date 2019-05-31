@@ -273,19 +273,20 @@ void Trax::on_comboBox_5_currentIndexChanged(int index)
 
 void Trax::on_Button_tx_send_clicked()
 {
-    QByteArray CR, LF;
-    CR[0]=0x0D;
-    LF[0]=0x0A;
-    CR.resize(1);
-    LF.resize(1);
-    if((ui->checkBox_3->isChecked()) && !(ui->checkBox_4->isChecked()))
-        emit write(ui->plainTextEdit_2->toPlainText().toUtf8()+CR);
-    else if(!(ui->checkBox_3->isChecked()) && (ui->checkBox_4->isChecked()))
-        emit write(ui->plainTextEdit_2->toPlainText().toUtf8()+LF);
-    else if((ui->checkBox_3->isChecked()) && (ui->checkBox_4->isChecked()))
-        emit write(ui->plainTextEdit_2->toPlainText().toUtf8()+CR+LF);
-    else
-        emit write(ui->plainTextEdit_2->toPlainText().toUtf8());
+    emit write(ui->plainTextEdit_2->toPlainText().toUtf8());
+    if(ui->checkBox_3->isChecked())
+        emit write("\u000D");
+    if(ui->checkBox_4->isChecked())
+        emit write("\u000A");
+    if(ui->checkBox_5->isChecked())
+        emit write("\u0003");
+    if(ui->checkBox_6->isChecked())
+        emit write("\u0004");
+    if(ui->checkBox_7->isChecked())
+        emit write("\u001A");
+
+
+
     update_status(params);
 }
 
