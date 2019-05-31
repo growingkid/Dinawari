@@ -132,7 +132,7 @@ void Trax::rcvdhexupdate(QString data)
 {
     ui->plainTextEdit_3->insertPlainText(data);
     if(ui->checkBox_2->isChecked())
-        ui->plainTextEdit_3->moveCursor(QTextCursor::EndOfBlock);
+        ui->plainTextEdit_3->moveCursor(QTextCursor::End);
 }
 
 void Trax::getserialdata(QByteArray rcvd)
@@ -273,7 +273,19 @@ void Trax::on_comboBox_5_currentIndexChanged(int index)
 
 void Trax::on_Button_tx_send_clicked()
 {
-    emit write(ui->plainTextEdit_2->toPlainText().toUtf8());
+    QByteArray CR, LF;
+    CR[0]=0x0D;
+    LF[0]=0x0A;
+    CR.resize(1);
+    LF.resize(1);
+    if((ui->checkBox_3->isChecked()) && !(ui->checkBox_4->isChecked()))
+        emit write(ui->plainTextEdit_2->toPlainText().toUtf8()+CR);
+    else if(!(ui->checkBox_3->isChecked()) && (ui->checkBox_4->isChecked()))
+        emit write(ui->plainTextEdit_2->toPlainText().toUtf8()+LF);
+    else if((ui->checkBox_3->isChecked()) && (ui->checkBox_4->isChecked()))
+        emit write(ui->plainTextEdit_2->toPlainText().toUtf8()+CR+LF);
+    else
+        emit write(ui->plainTextEdit_2->toPlainText().toUtf8());
     update_status(params);
 }
 
@@ -291,16 +303,16 @@ void Trax::on_Button_tx_browse_clicked()
     //fileDialog.setDirectory(tr("/home/%1").arg(qgetenv("USER").data()).toUtf8());
     if (fileDialog.exec() == QDialog::Accepted)
     {
-        if(filetosend!=nullptr)
-            delete filetosend;
         ui->lineEdit->clear();
         ui->lineEdit->insert(tr("%1").arg(fileDialog.selectedFiles().join(' ')).toUtf8());
-        filetosend = new QFile(ui->lineEdit->text());
     }
 }
 
 void Trax::on_Button_tx_sendfile_clicked()
 {
+    if(filetosend!=nullptr)
+        delete filetosend;
+    filetosend = new QFile(ui->lineEdit->text());
     filetosend->close();
     filetosend->open(QIODevice::ReadOnly);
     emit write(filetosend->readAll());
